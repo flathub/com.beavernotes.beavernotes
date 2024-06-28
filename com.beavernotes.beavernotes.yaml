@@ -10,7 +10,6 @@ finish-args:
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
   - --filesystem=host
   - --share=ipc
-  - --share=network
   - --socket=wayland
   - --socket=fallback-x11
 rename-desktop-file: beaver-notes.desktop
@@ -22,7 +21,7 @@ modules:
       - ar -x Beaver-notes_*.deb
       - tar -xf data.tar.xz
       - mkdir -p $FLATPAK_DEST/opt
-      - cp -r opt/beaver-notes/* $FLATPAK_DEST/opt
+      - cp -r opt/Beaver-notes/* $FLATPAK_DEST/opt
       - mkdir -p $FLATPAK_DEST/share/applications
       - cp -r usr/share/applications/* $FLATPAK_DEST/share/applications/
       - mkdir -p $FLATPAK_DEST/share/icons/hicolor
@@ -35,13 +34,13 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.3.0/Beaver-notes_3.3.0_amd64.deb
-        sha256: 878af68abd6e85fdb38c5748775138aeb196606485390e0b8211b8e7e11db7e7
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.4.0/Beaver-notes_3.4.0_amd64.deb
+        sha256: 79d8ea579708dbe2a6fdf5f1d7f6870d9932072153c13e60e490ab080046c317
       - type: file
         only-arches:
           - aarch64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.3.0/Beaver-notes_3.3.0_arm64.deb
-        sha256: 30f42188006c3e015ece1bf27be5746eae9f4dbf47365a1949b14624623df145
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.4.0/Beaver-notes_3.4.0_arm64.deb
+        sha256: c0531e7898b2e6a7fe0031101ceb4c3f46901cadd73fbc72558ce8f97fe23bcd
       - type: script
         dest-filename: beavernotes.sh
         commands:
@@ -49,5 +48,5 @@ modules:
           - exec zypak-wrapper /app/opt/beaver-notes --ozone-platform-hint=auto
             --enable-features=WaylandWindowDecorations "$@"
       - type: file
-        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/f90168e6d6138c229d663ec182df9a672394564f/flatpak/com.beavernotes.beavernotes.metainfo.xml
-        sha256: 154be3580aa49df73f494ec861015979b368fd88631e2e3fac4c0929d108f047
+        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/50ea91a10c74226726a6d0a194de843bd55b1b8b/flatpak/com.beavernotes.beavernotes.metainfo.xml
+        sha256: 2fd53fd36c2665d36a3fa8b4ce0f9654ad0176fbc75d4f55283436f282b24faf
