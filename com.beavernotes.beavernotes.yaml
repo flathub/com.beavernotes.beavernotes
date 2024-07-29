@@ -10,6 +10,11 @@ finish-args:
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
   - --filesystem=host
   - --share=ipc
+<<<<<<< Updated upstream
+=======
+  - --socket=pulseaudio
+  - --share=network
+>>>>>>> Stashed changes
   - --socket=wayland
   - --socket=fallback-x11
 rename-desktop-file: beaver-notes.desktop
@@ -34,13 +39,13 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.4.0/Beaver-notes_3.4.0_amd64.deb
-        sha256: 79d8ea579708dbe2a6fdf5f1d7f6870d9932072153c13e60e490ab080046c317
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.5.0/Beaver-notes_3.5.0_amd64.deb
+        sha256: f6b9ead70d3d576334b0112f0eb4686564c37798ce056631050c60fae5abd1bb
       - type: file
         only-arches:
           - aarch64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.4.0/Beaver-notes_3.4.0_arm64.deb
-        sha256: c0531e7898b2e6a7fe0031101ceb4c3f46901cadd73fbc72558ce8f97fe23bcd
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.5.0/Beaver-notes_3.5.0_arm64.deb
+        sha256: cef35d82bebe6dce9621b3462cb73bb5d06f33936c0229ba2f6d45a60c2d409a
       - type: script
         dest-filename: beavernotes.sh
         commands:
@@ -48,5 +53,5 @@ modules:
           - exec zypak-wrapper /app/opt/beaver-notes --ozone-platform-hint=auto
             --enable-features=WaylandWindowDecorations "$@"
       - type: file
-        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/50ea91a10c74226726a6d0a194de843bd55b1b8b/flatpak/com.beavernotes.beavernotes.metainfo.xml
-        sha256: 2fd53fd36c2665d36a3fa8b4ce0f9654ad0176fbc75d4f55283436f282b24faf
+        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/33cb1d6f936ff21e4ae403dbbb671ead4bdf65f5/flatpak/com.beavernotes.beavernotes.metainfo.xml
+        sha256: c32f9062e7a2662f7545ad8683e2ea5f5f573ba56bc7f0c6c190b20ecd4d65b6
