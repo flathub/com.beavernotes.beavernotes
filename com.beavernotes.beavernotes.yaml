@@ -10,11 +10,8 @@ finish-args:
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
   - --filesystem=host
   - --share=ipc
-<<<<<<< Updated upstream
-=======
   - --socket=pulseaudio
   - --share=network
->>>>>>> Stashed changes
   - --socket=wayland
   - --socket=fallback-x11
 rename-desktop-file: beaver-notes.desktop
