@@ -16,7 +16,6 @@ finish-args:
   - --share=network
   - --socket=wayland
   - --socket=fallback-x11
-  - --talk-name=org.freedesktop.Notifications
 rename-desktop-file: beaver-notes.desktop
 rename-icon: beaver-notes
 modules:
