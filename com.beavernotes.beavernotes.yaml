@@ -16,6 +16,8 @@ finish-args:
   - --share=network
   - --socket=wayland
   - --socket=fallback-x11
+  - --talk-name=org.gtk.vfs.*
+  - --own-name=org.gtk.vfs.*
 rename-desktop-file: beaver-notes.desktop
 rename-icon: beaver-notes
 modules:
