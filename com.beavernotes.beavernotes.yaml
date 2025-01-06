@@ -40,13 +40,13 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.6.0/Beaver-notes_3.6.0_amd64.deb
-        sha256: 175c6d361a4292c97a99b286bef6a1a8289bd65794c6d4aba334c4fdfe898975
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.8.0/Beaver-notes_3.8.0_amd64.deb
+        sha256: c62efa320a4a8e0b74d5bd7d87443c38fcf2bc3ea020665b7df90b4d4ed3c0d6
       - type: file
         only-arches:
           - aarch64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.6.0/Beaver-notes_3.6.0_arm64.deb
-        sha256: c533eaa91a6a930822e9bf37257b2d2f9f81448ce6c940b5407f82f234a73d93
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.8.0/Beaver-notes_3.8.0_arm64.deb
+        sha256: 7b6866ba9cf9eb70e520cb6d0ed03952cada882648a3f05e940b0586d87cc961
       - type: script
         dest-filename: beavernotes.sh
         commands:
@@ -54,5 +54,5 @@ modules:
           - exec zypak-wrapper /app/opt/beaver-notes --ozone-platform-hint=auto
             --enable-features=WaylandWindowDecorations "$@"
       - type: file
-        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/a6d17e9b168ad90310f55373260b758ae53f917a/flatpak/com.beavernotes.beavernotes.metainfo.xml
-        sha256: f922d9044dfe6cf875753abe84cabcd1aa8ffb0cd571f112759b4e402ad227a2
+        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/5910d71c9327417fbcdfad39dec844c2d96c4ec7/flatpak/com.beavernotes.beavernotes.metainfo.xml
+        sha256: 43957972dba97da82e5f0cb08132713f81217e6140be1b064daeedb1c58932af
