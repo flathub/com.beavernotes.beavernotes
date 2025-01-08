@@ -54,5 +54,5 @@ modules:
           - exec zypak-wrapper /app/opt/beaver-notes --ozone-platform-hint=auto
             --enable-features=WaylandWindowDecorations "$@"
       - type: file
-        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/5910d71c9327417fbcdfad39dec844c2d96c4ec7/flatpak/com.beavernotes.beavernotes.metainfo.xml
-        sha256: 43957972dba97da82e5f0cb08132713f81217e6140be1b064daeedb1c58932af
+        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/6fae08e1f390de88e2070603a47ea59b6289e50f/flatpak/com.beavernotes.beavernotes.metainfo.xml
+        sha256: 1235fc804d8cdec15de0e687f1f127ae55cc83eb9537dc3bfc06f36f26f841e4
