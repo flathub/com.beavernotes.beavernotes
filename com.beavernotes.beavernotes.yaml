@@ -46,7 +46,7 @@ modules:
         only-arches:
           - aarch64
         url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.8.0/Beaver-notes_3.8.0_arm64.deb
-        sha256: 6dc39c16031ac11657ea0a4619f5d5a6ff40d02d9e865ef3932cc1740bed19d2
+        sha256: 7b6866ba9cf9eb70e520cb6d0ed03952cada882648a3f05e940b0586d87cc961
       - type: script
         dest-filename: beavernotes.sh
         commands:
