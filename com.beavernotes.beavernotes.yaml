@@ -1,9 +1,9 @@
 app-id: com.beavernotes.beavernotes
 runtime: org.freedesktop.Platform
-runtime-version: '23.08'
+runtime-version: "23.08"
 sdk: org.freedesktop.Sdk
 base: org.electronjs.Electron2.BaseApp
-base-version: '23.08'
+base-version: "23.08"
 command: beaver-notes
 finish-args:
   - --device=dri
@@ -13,7 +13,6 @@ finish-args:
   - --filesystem=xdg-run/gvfsd
   - --share=ipc
   - --socket=pulseaudio
-  - --share=network
   - --socket=wayland
   - --socket=fallback-x11
   - --talk-name=org.gtk.vfs.*
@@ -40,13 +39,13 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.8.0/Beaver-notes_3.8.0_amd64.deb
-        sha256: c62efa320a4a8e0b74d5bd7d87443c38fcf2bc3ea020665b7df90b4d4ed3c0d6
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.9.0/Beaver-notes_3.9.0_amd64.deb
+        sha256: 41b24f90f8e10bc344685f6c61b572a6abc0252b3979d6edead85a05d6bf8877
       - type: file
         only-arches:
           - aarch64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.8.0/Beaver-notes_3.8.0_arm64.deb
-        sha256: 7b6866ba9cf9eb70e520cb6d0ed03952cada882648a3f05e940b0586d87cc961
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.9.0/Beaver-notes_3.9.0_arm64.deb
+        sha256: 0e5dd5fe29f3e64fe47914975c9bb90cc255e664a356dd32f8e293364547a3fa
       - type: script
         dest-filename: beavernotes.sh
         commands:
@@ -54,5 +53,5 @@ modules:
           - exec zypak-wrapper /app/opt/beaver-notes --ozone-platform-hint=auto
             --enable-features=WaylandWindowDecorations "$@"
       - type: file
-        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/6fae08e1f390de88e2070603a47ea59b6289e50f/flatpak/com.beavernotes.beavernotes.metainfo.xml
-        sha256: 1235fc804d8cdec15de0e687f1f127ae55cc83eb9537dc3bfc06f36f26f841e4
+        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/5cdd3fc1889cf33d7d967d0b52d8c3eaa37535bf/flatpak/com.beavernotes.beavernotes.metainfo.xml
+        sha256: f34bafaf0e70d660f4f14be2446631b3f15dda72460639f0e059ad20ab5bbad2
