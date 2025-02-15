@@ -39,12 +39,12 @@ modules:
       - type: file
         only-arches:
           - x86_64
-        path: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.9.0/Beaver-notes_3.9.0_amd64.deb
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.9.0/Beaver-notes_3.9.0_amd64.deb
         sha256: 41b24f90f8e10bc344685f6c61b572a6abc0252b3979d6edead85a05d6bf8877
       - type: file
         only-arches:
           - aarch64
-        path: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.9.0/Beaver-notes_3.9.0_arm64.deb
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/3.9.0/Beaver-notes_3.9.0_arm64.deb
         sha256: 0e5dd5fe29f3e64fe47914975c9bb90cc255e664a356dd32f8e293364547a3fa
       - type: script
         dest-filename: beavernotes.sh
