@@ -55,4 +55,4 @@ modules:
             --enable-features=WaylandWindowDecorations "$@"
       - type: file
         url: https://github.com/Beaver-Notes/Beaver-Notes/blob/bd56cf133e423d9272b946ec08576d4b962fcd78/flatpak/com.beavernotes.beavernotes.metainfo.xml
-        sha256: 2581f616a1df0149fcfd172b22b4a8f745c9a3f6e2523336b4857c3142b1487d
+        sha256: f8685004552a12fa2fef7ff1ec7bfd1141e7c4a47f52f369054e7f00ade4ccee
