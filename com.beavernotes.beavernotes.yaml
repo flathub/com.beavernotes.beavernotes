@@ -41,12 +41,12 @@ modules:
         only-arches:
           - x86_64
         url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/4.3.0/Beaver-notes_4.3.0_amd64.deb
-        sha256: 593c9e1837f71bd55024764031b90f95491d8b9edaf55d7e13195f957bd462fb
+        sha256: 45c2f17af81bd5f99eacb9fea17a5f171d3a3ebbe287592d6a52ab108e85c2a8
       - type: file
         only-arches:
           - aarch64
         url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/4.3.0/Beaver-notes_4.3.0_arm64.deb
-        sha256: 944481d32a89cf180d0c26fee2f9665181a93f12ca17106a06704272b9142c3d      
+        sha256: 08f7b03c3da16f6a7363041f1fbed1e4d09add1e6186d367d0c2293d34f496e7      
       - type: script
         dest-filename: beavernotes.sh
         commands:
