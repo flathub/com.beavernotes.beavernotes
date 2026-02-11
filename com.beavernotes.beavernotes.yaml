@@ -26,7 +26,7 @@ modules:
       - ar -x Beaver-notes_*.deb
       - tar -xf data.tar.xz
       - mkdir -p $FLATPAK_DEST/opt
-      - cp -r opt/Beaver-notes/* $FLATPAK_DEST/opt
+      - cp -r opt/'Beaver Notes'/* $FLATPAK_DEST/opt
       - mkdir -p $FLATPAK_DEST/share/applications
       - cp -r usr/share/applications/* $FLATPAK_DEST/share/applications/
       - mkdir -p $FLATPAK_DEST/share/icons/hicolor
