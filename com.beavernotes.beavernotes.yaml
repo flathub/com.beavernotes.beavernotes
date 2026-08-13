@@ -28,14 +28,14 @@ modules:
       - type: archive
         only-arches:
           - x86_64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/v5.0.0-beta.2/Beaver.Notes.Beta-5.0.0-beta.2-linux-x64.tar.gz
-        sha256: f31114b6688474c0a896f76e2c9138ef3de9bd2c2dc10c8dcffa47251c2ec017
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/v5.0.0-beta.2/Beaver-Notes-Beta-5.0.0-beta.2-linux-x64.tar.gz
+        sha256: 6831cf9141f0c7aee4bd6475d67b742aecf44c3af3da304ac73f756f198be8bd
 
       - type: archive
         only-arches:
           - aarch64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/v5.0.0-beta.2/Beaver.Notes.Beta-5.0.0-beta.2-linux-arm64.tar.gz
-        sha256: 190d201b87dcf3604f7734759e0f0a3fba3343c1ffc5e89592de48d0c827bb4e
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/v5.0.0-beta.2/Beaver-Notes-Beta-5.0.0-beta.2-linux-arm64.tar.gz
+        sha256: d5ed6012b8087cda5f197e479cb14f52b04385c0bc16620486ed4f33fcc7a396
 
       - type: inline
         dest-filename: com.beavernotes.beavernotes.desktop
