@@ -23,36 +23,24 @@ modules:
   - name: beaver-notes
     buildsystem: simple
     build-commands:
-      - ar -x Beaver-notes_*.deb
-      - tar -xf data.tar.xz
-      - mkdir -p $FLATPAK_DEST/opt
-      - cp -r opt/'Beaver Notes'/* $FLATPAK_DEST/opt
-      - mkdir -p $FLATPAK_DEST/share/applications
-      - cp -r usr/share/applications/* $FLATPAK_DEST/share/applications/
-      - mkdir -p $FLATPAK_DEST/share/icons/hicolor
-      - cp -r usr/share/icons/hicolor/* $FLATPAK_DEST/share/icons/hicolor/
-      - rm -f $FLATPAK_DEST/share/icons/hicolor/1024x1024/apps/*.png
+      - tar -xf Beaver-Notes-*.tar.gz
+      - mkdir -p $FLATPAK_DEST/opt/beaver-notes
+      - cp -r Beaver-Notes-*/lib/beaver-notes/* $FLATPAK_DEST/opt/beaver-notes/
+      - mkdir -p $FLATPAK_DEST/bin
+      - ln -s /opt/beaver-notes/beaver-notes $FLATPAK_DEST/bin/beaver-notes
+      - mkdir -p $FLATPAK_DEST/share
+      - cp -r Beaver-Notes-*/share/* $FLATPAK_DEST/share/
       - desktop-file-edit --set-key=Categories --set-value="X-Productivity;" $FLATPAK_DEST/share/applications/beaver-notes.desktop
       - desktop-file-edit --set-key=Exec --set-value="beaver-notes %U" $FLATPAK_DEST/share/applications/beaver-notes.desktop
-      - install beavernotes.sh $FLATPAK_DEST/bin/beaver-notes
       - install -Dm0644 com.beavernotes.beavernotes.metainfo.xml -t $FLATPAK_DEST/share/metainfo/
     sources:
-      - type: file
+      - type: archive
         only-arches:
           - x86_64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/4.4.0/Beaver-notes_4.4.0_amd64.deb
-        sha256: e81a7987e645e837a8f047490ba1611baaef92182ca12d8e378bdf96ddf92c98
-      - type: file
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/5.0.0/Beaver-Notes-5.0.0-x86_64.tar.gz
+        sha256: <hash>
+      - type: archive
         only-arches:
           - aarch64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/4.4.0/Beaver-notes_4.4.0_arm64.deb
-        sha256: 00a18519754ee69e2f8bddfa4cb492860330acab1fc04d5d38fca0c2f97917e1
-      - type: script
-        dest-filename: beavernotes.sh
-        commands:
-          - export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
-          - exec zypak-wrapper /app/opt/beaver-notes --ozone-platform-hint=auto
-            --enable-features=WaylandWindowDecorations "$@"
-      - type: file
-        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/7c62029475787bae7c8a5ee14d6b0974a51f45e3/flatpak/com.beavernotes.beavernotes.metainfo.xml
-        sha256: 6e7405ee86fc47011bd1235ef7b9e8265b7d504becd6429e6d19dfbf76445a51
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/5.0.0/Beaver-Notes-5.0.0-aarch64.tar.gz
+        sha256: <hash>
