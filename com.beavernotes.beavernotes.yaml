@@ -1,14 +1,11 @@
 app-id: com.beavernotes.beavernotes
-runtime: org.freedesktop.Platform
-runtime-version: "25.08"
-sdk: org.freedesktop.Sdk
-base: org.electronjs.Electron2.BaseApp
-base-version: "25.08"
+runtime: org.gnome.Platform
+runtime-version: "50"
+sdk: org.gnome.Sdk
 command: beaver-notes
 finish-args:
   - --device=dri
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
-  - --filesystem=host
   - --filesystem=xdg-run/gvfs
   - --filesystem=xdg-run/gvfsd
   - --share=ipc
@@ -16,43 +13,50 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --talk-name=org.gtk.vfs.*
-  - --own-name=org.gtk.vfs.*
-rename-desktop-file: beaver-notes.desktop
-rename-icon: beaver-notes
+  - --env=WEBKIT_DISABLE_COMPOSITING_MODE=1
+
 modules:
   - name: beaver-notes
     buildsystem: simple
     build-commands:
-      - ar -x Beaver-notes_*.deb
-      - tar -xf data.tar.xz
-      - mkdir -p $FLATPAK_DEST/opt
-      - cp -r opt/'Beaver Notes'/* $FLATPAK_DEST/opt
-      - mkdir -p $FLATPAK_DEST/share/applications
-      - cp -r usr/share/applications/* $FLATPAK_DEST/share/applications/
-      - mkdir -p $FLATPAK_DEST/share/icons/hicolor
-      - cp -r usr/share/icons/hicolor/* $FLATPAK_DEST/share/icons/hicolor/
-      - rm -f $FLATPAK_DEST/share/icons/hicolor/1024x1024/apps/*.png
-      - desktop-file-edit --set-key=Categories --set-value="X-Productivity;" $FLATPAK_DEST/share/applications/beaver-notes.desktop
-      - desktop-file-edit --set-key=Exec --set-value="beaver-notes %U" $FLATPAK_DEST/share/applications/beaver-notes.desktop
-      - install beavernotes.sh $FLATPAK_DEST/bin/beaver-notes
+      - install -Dm0755 beaver-notes $FLATPAK_DEST/bin/beaver-notes
+      - install -Dm0644 com.beavernotes.beavernotes.desktop $FLATPAK_DEST/share/applications/com.beavernotes.beavernotes.desktop
       - install -Dm0644 com.beavernotes.beavernotes.metainfo.xml -t $FLATPAK_DEST/share/metainfo/
+      - install -Dm0644 icons/512x512.png $FLATPAK_DEST/share/icons/hicolor/512x512/apps/com.beavernotes.beavernotes.png
+
     sources:
-      - type: file
+      - type: archive
         only-arches:
           - x86_64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/4.4.0/Beaver-notes_4.4.0_amd64.deb
-        sha256: e81a7987e645e837a8f047490ba1611baaef92182ca12d8e378bdf96ddf92c98
-      - type: file
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/v5.0.0-beta.2/Beaver-Notes-Beta-5.0.0-beta.2-linux-x64.tar.gz
+        sha256: 6831cf9141f0c7aee4bd6475d67b742aecf44c3af3da304ac73f756f198be8bd
+
+      - type: archive
         only-arches:
           - aarch64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/4.4.0/Beaver-notes_4.4.0_arm64.deb
-        sha256: 00a18519754ee69e2f8bddfa4cb492860330acab1fc04d5d38fca0c2f97917e1
-      - type: script
-        dest-filename: beavernotes.sh
-        commands:
-          - export TMPDIR="$XDG_RUNTIME_DIR/app/$FLATPAK_ID"
-          - exec zypak-wrapper /app/opt/beaver-notes --ozone-platform-hint=auto
-            --enable-features=WaylandWindowDecorations "$@"
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/v5.0.0-beta.2/Beaver-Notes-Beta-5.0.0-beta.2-linux-arm64.tar.gz
+        sha256: d5ed6012b8087cda5f197e479cb14f52b04385c0bc16620486ed4f33fcc7a396
+
+      - type: inline
+        dest-filename: com.beavernotes.beavernotes.desktop
+        contents: |
+          [Desktop Entry]
+          Name=Beaver Notes
+          Comment=Private note taking app
+          Exec=beaver-notes %U
+          Icon=com.beavernotes.beavernotes
+          Type=Application
+          Categories=Office;Utility;
+          MimeType=application/x-beaver-notes;text/markdown;text/plain;text/html;
+          Keywords=note;notes;private;encrypted;
+          StartupNotify=true
+
       - type: file
-        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/7c62029475787bae7c8a5ee14d6b0974a51f45e3/flatpak/com.beavernotes.beavernotes.metainfo.xml
-        sha256: 6e7405ee86fc47011bd1235ef7b9e8265b7d504becd6429e6d19dfbf76445a51
+        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/a1ca57cacd9725690216120bf1b907fd8de1411b/flatpak/com.beavernotes.beavernotes.metainfo.xml
+        sha256: 0877cf61dcbc93860a3806a9bb815299af2727af7224585809788d1b76a4237d
+
+      - type: file
+        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/9e78395c497aac29cf794686d99d76c6f901cb62/buildResources/icon.png
+        sha256: 565d9f97f86240f6721004b6149d048ed26ecb5efd6e0cf2460f1d230f744602
+        dest: icons
+        dest-filename: 512x512.png
