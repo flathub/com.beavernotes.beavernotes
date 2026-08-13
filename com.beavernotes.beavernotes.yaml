@@ -1,9 +1,7 @@
 app-id: com.beavernotes.beavernotes
-runtime: org.freedesktop.Platform
-runtime-version: "25.08"
-sdk: org.freedesktop.Sdk
-base: org.electronjs.Electron2.BaseApp
-base-version: "25.08"
+runtime: org.gnome.Platform
+runtime-version: "50"
+sdk: org.gnome.Sdk
 command: beaver-notes
 finish-args:
   - --device=dri
@@ -17,30 +15,50 @@ finish-args:
   - --socket=fallback-x11
   - --talk-name=org.gtk.vfs.*
   - --own-name=org.gtk.vfs.*
-rename-desktop-file: beaver-notes.desktop
-rename-icon: beaver-notes
+  - --env=WEBKIT_DISABLE_COMPOSITING_MODE=1
+
 modules:
   - name: beaver-notes
     buildsystem: simple
     build-commands:
-      - tar -xf Beaver-Notes-*.tar.gz
-      - mkdir -p $FLATPAK_DEST/opt/beaver-notes
-      - cp -r Beaver-Notes-*/lib/beaver-notes/* $FLATPAK_DEST/opt/beaver-notes/
-      - mkdir -p $FLATPAK_DEST/bin
-      - ln -s /opt/beaver-notes/beaver-notes $FLATPAK_DEST/bin/beaver-notes
-      - mkdir -p $FLATPAK_DEST/share
-      - cp -r Beaver-Notes-*/share/* $FLATPAK_DEST/share/
-      - desktop-file-edit --set-key=Categories --set-value="X-Productivity;" $FLATPAK_DEST/share/applications/beaver-notes.desktop
-      - desktop-file-edit --set-key=Exec --set-value="beaver-notes %U" $FLATPAK_DEST/share/applications/beaver-notes.desktop
+      - install -Dm0755 beaver-notes $FLATPAK_DEST/bin/beaver-notes
+      - install -Dm0644 com.beavernotes.beavernotes.desktop $FLATPAK_DEST/share/applications/com.beavernotes.beavernotes.desktop
       - install -Dm0644 com.beavernotes.beavernotes.metainfo.xml -t $FLATPAK_DEST/share/metainfo/
+      - install -Dm0644 icons/512x512.png $FLATPAK_DEST/share/icons/hicolor/512x512/apps/com.beavernotes.beavernotes.png
+
     sources:
       - type: archive
         only-arches:
           - x86_64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/5.0.0/Beaver-Notes-5.0.0-x86_64.tar.gz
-        sha256: <hash>
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/v5.0.0-beta.2/Beaver.Notes.Beta-5.0.0-beta.2-linux-x64.tar.gz
+        sha256: f31114b6688474c0a896f76e2c9138ef3de9bd2c2dc10c8dcffa47251c2ec017
+
       - type: archive
         only-arches:
           - aarch64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/5.0.0/Beaver-Notes-5.0.0-aarch64.tar.gz
-        sha256: <hash>
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/v5.0.0-beta.2/Beaver.Notes.Beta-5.0.0-beta.2-linux-arm64.tar.gz
+        sha256: 190d201b87dcf3604f7734759e0f0a3fba3343c1ffc5e89592de48d0c827bb4e
+
+      - type: inline
+        dest-filename: com.beavernotes.beavernotes.desktop
+        contents: |
+          [Desktop Entry]
+          Name=Beaver Notes
+          Comment=Private note taking app
+          Exec=beaver-notes %U
+          Icon=com.beavernotes.beavernotes
+          Type=Application
+          Categories=Office;Utility;
+          MimeType=application/x-beaver-notes;text/markdown;text/plain;text/html;
+          Keywords=note;notes;private;encrypted;
+          StartupNotify=true
+
+      - type: file
+        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/a1ca57cacd9725690216120bf1b907fd8de1411b/flatpak/com.beavernotes.beavernotes.metainfo.xml
+        sha256: 0877cf61dcbc93860a3806a9bb815299af2727af7224585809788d1b76a4237d
+
+      - type: file
+        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/0a5ce94fb24eae9768525a37bcef958f882141ce/buildResources/icon.png
+        sha256: b64ebfd942d1776fa05d9f533e2596faa83e65b8ec5870bd78453f5df4c3adbd
+        dest: icons
+        dest-filename: 512x512.png
