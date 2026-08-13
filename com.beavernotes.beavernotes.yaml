@@ -6,7 +6,6 @@ command: beaver-notes
 finish-args:
   - --device=dri
   - --env=XCURSOR_PATH=/run/host/user-share/icons:/run/host/share/icons
-  - --filesystem=host
   - --filesystem=xdg-run/gvfs
   - --filesystem=xdg-run/gvfsd
   - --share=ipc
@@ -14,7 +13,6 @@ finish-args:
   - --socket=wayland
   - --socket=fallback-x11
   - --talk-name=org.gtk.vfs.*
-  - --own-name=org.gtk.vfs.*
   - --env=WEBKIT_DISABLE_COMPOSITING_MODE=1
 
 modules:
