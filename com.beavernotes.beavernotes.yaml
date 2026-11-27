@@ -54,8 +54,8 @@ modules:
           StartupWMClass=com.beavernotes.beaver-notes
 
       - type: file
-        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/a76bb4b46394c3c7eb5bbeba119d7ee7ea68bdce/flatpak/com.beavernotes.beavernotes.metainfo.xml
-        sha256: eec1e95296b890923ca9336d95b5ed7a7ee5444b41920ce95bbe51831ad2850f
+        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/4de4e94a65e97478f72fe8abe7158683ca537b2a/flatpak/com.beavernotes.beavernotes.metainfo.xml
+        sha256: 34dbf65662f8289db4e59c7ef8d86b133e31c66f2abc698f20c873c7d38ee578
 
       - type: file
         url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/v5.0.0/buildResources/icon.png
