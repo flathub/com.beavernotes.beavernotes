@@ -1,6 +1,6 @@
 app-id: com.beavernotes.beavernotes
 runtime: org.gnome.Platform
-runtime-version: "50"
+runtime-version: "51"
 sdk: org.gnome.Sdk
 command: beaver-notes
 finish-args:
@@ -19,7 +19,9 @@ modules:
   - name: beaver-notes
     buildsystem: simple
     build-commands:
-      - install -Dm0755 beaver-notes $FLATPAK_DEST/bin/beaver-notes
+      - patch -p1 -i com.beavernotes.beavernotes.metainfo.patch
+      - install -Dm0755 bin/beaver-notes $FLATPAK_DEST/bin/beaver-notes
+      - install -Dm0755 lib/beaver-notes/beaver-notes $FLATPAK_DEST/lib/beaver-notes/beaver-notes
       - install -Dm0644 com.beavernotes.beavernotes.desktop $FLATPAK_DEST/share/applications/com.beavernotes.beavernotes.desktop
       - install -Dm0644 com.beavernotes.beavernotes.metainfo.xml -t $FLATPAK_DEST/share/metainfo/
       - install -Dm0644 icons/512x512.png $FLATPAK_DEST/share/icons/hicolor/512x512/apps/com.beavernotes.beavernotes.png
@@ -28,14 +30,14 @@ modules:
       - type: archive
         only-arches:
           - x86_64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/v5.0.0-beta.2/Beaver-Notes-Beta-5.0.0-beta.2-linux-x64.tar.gz
-        sha256: 6831cf9141f0c7aee4bd6475d67b742aecf44c3af3da304ac73f756f198be8bd
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/v5.0.0/Beaver-Notes-5.0.0-x86_64.tar.gz
+        sha256: 11416c1d02fd48d631acc6dba879e47ef397fffeece74b7e1242aa12ef7dfac5
 
       - type: archive
         only-arches:
           - aarch64
-        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/v5.0.0-beta.2/Beaver-Notes-Beta-5.0.0-beta.2-linux-arm64.tar.gz
-        sha256: d5ed6012b8087cda5f197e479cb14f52b04385c0bc16620486ed4f33fcc7a396
+        url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/v5.0.0/Beaver-Notes-5.0.0-aarch64.tar.gz
+        sha256: c828989b59a7855ccc38207f261b1149c342bec48ce09c782ea49b99d47f3886
 
       - type: inline
         dest-filename: com.beavernotes.beavernotes.desktop
@@ -50,13 +52,17 @@ modules:
           MimeType=application/x-beaver-notes;text/markdown;text/plain;text/html;
           Keywords=note;notes;private;encrypted;
           StartupNotify=true
+          StartupWMClass=com.beavernotes.beaver-notes
 
       - type: file
-        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/a1ca57cacd9725690216120bf1b907fd8de1411b/flatpak/com.beavernotes.beavernotes.metainfo.xml
-        sha256: 0877cf61dcbc93860a3806a9bb815299af2727af7224585809788d1b76a4237d
+        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/v5.0.0/flatpak/com.beavernotes.beavernotes.metainfo.xml
+        sha256: 1c7ce1dc2ca33a9da130f1cfbd657278b7073e22dd5beb158f442cc2da47f6b7
 
       - type: file
-        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/9e78395c497aac29cf794686d99d76c6f901cb62/buildResources/icon.png
-        sha256: 565d9f97f86240f6721004b6149d048ed26ecb5efd6e0cf2460f1d230f744602
+        path: com.beavernotes.beavernotes.metainfo.patch
+
+      - type: file
+        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/v5.0.0/buildResources/icon.png
+        sha256: 0eb3eaa1091a3e12876d55832b553e6880629d9f6c54c881fdcf98dcb690ce2a
         dest: icons
         dest-filename: 512x512.png
