@@ -1,6 +1,20 @@
 --- a/com.beavernotes.beavernotes.metainfo.xml
 +++ b/com.beavernotes.beavernotes.metainfo.xml
-@@ -46,23 +46,17 @@
+@@ -32,11 +32,11 @@
+   </categories>
+   <screenshots>
+     <screenshot type="default">
+-      <image>https://github.com/Beaver-Notes/Beaver-Notes/blob/main/flatpak/Home.png?raw=true</image>
++      <image>https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/v5.0.0/flatpak/Home.png</image>
+       <caption>Home</caption>
+     </screenshot>
+     <screenshot>
+-      <image>https://github.com/Beaver-Notes/Beaver-Notes/blob/main/flatpak/Note%201.png?raw=true</image>
++      <image>https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/v5.0.0/flatpak/Note%201.png</image>
+       <caption>Example note</caption>
+     </screenshot>
+   </screenshots>
+@@ -46,24 +46,20 @@
    <url type="translate">https://docs.beavernotes.com/Dev/translate/</url>
    <url type="vcs-browser">https://github.com/Beaver-Notes/Beaver-Notes</url>
    <releases>
@@ -10,7 +24,7 @@
 +      <url type="details">https://github.com/Beaver-Notes/Beaver-Notes/releases/tag/v5.0.0</url>
        <description>
 -        <p>This beta release brings a redesigned onboarding experience, improved synchronization, stronger encryption, and a number of usability and performance improvements.</p>
-+        <p>Beaver Notes 5.0.0 is a major release that rewrites the app from Electron to Tauri, with a lighter, faster app and a single codebase across desktop and mobile.</p>
++        <p>Beaver Notes 5.0.0 is a complete rewrite from Electron to Tauri, with a lighter, faster app and a single codebase across desktop and mobile.</p>
          <ul>
 -          <li>Redesigned onboarding with improved animations and stability.</li>
 -          <li>Added table merge and split operations.</li>
@@ -27,9 +41,12 @@
 +          <li>New SQLite-backed storage foundation with app-wide encryption.</li>
 +          <li>Redesigned onboarding, home, sidebar, editor, folders, labels, and settings.</li>
 +          <li>Improved import and export, including Beaver Notes 4, Apple Notes, Notion, Evernote, Bear, Obsidian, Simplenote, and Markdown.</li>
-+          <li>Added backlinks, reader mode, word count, text alignment, tables, and richer editor blocks.</li>
-+          <li>Improved Beaver Sync integration and reliability.</li>
++          <li>Added backlinks, reader mode, word count and goal, text alignment, tables, and richer editor blocks.</li>
++          <li>Improved Beaver Sync integration, encrypted asset sync, and folder-based sync reliability.</li>
 +          <li>Added iOS and Android support with a unified codebase.</li>
++          <li>Improved RTL support, note previews, command palette, and mobile bullet lists.</li>
          </ul>
++        <p>Note: Beaver Sync will not be publicly available until January 2027 due to pending payment-provider approval.</p>
        </description>
      </release>
+   </releases>
