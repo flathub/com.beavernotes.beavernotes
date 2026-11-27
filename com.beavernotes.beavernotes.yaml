@@ -19,7 +19,6 @@ modules:
   - name: beaver-notes
     buildsystem: simple
     build-commands:
-      - patch -p1 -i com.beavernotes.beavernotes.metainfo.patch
       - install -Dm0755 bin/beaver-notes $FLATPAK_DEST/bin/beaver-notes
       - install -Dm0755 lib/beaver-notes/beaver-notes $FLATPAK_DEST/lib/beaver-notes/beaver-notes
       - install -Dm0644 com.beavernotes.beavernotes.desktop $FLATPAK_DEST/share/applications/com.beavernotes.beavernotes.desktop
@@ -55,11 +54,8 @@ modules:
           StartupWMClass=com.beavernotes.beaver-notes
 
       - type: file
-        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/v5.0.0/flatpak/com.beavernotes.beavernotes.metainfo.xml
-        sha256: 1c7ce1dc2ca33a9da130f1cfbd657278b7073e22dd5beb158f442cc2da47f6b7
-
-      - type: file
-        path: com.beavernotes.beavernotes.metainfo.patch
+        url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/a76bb4b46394c3c7eb5bbeba119d7ee7ea68bdce/flatpak/com.beavernotes.beavernotes.metainfo.xml
+        sha256: eec1e95296b890923ca9336d95b5ed7a7ee5444b41920ce95bbe51831ad2850f
 
       - type: file
         url: https://raw.githubusercontent.com/Beaver-Notes/Beaver-Notes/v5.0.0/buildResources/icon.png
