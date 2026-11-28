@@ -30,13 +30,13 @@ modules:
         only-arches:
           - x86_64
         url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/v5.0.0/Beaver-Notes-5.0.0-x86_64.tar.gz
-        sha256: 11416c1d02fd48d631acc6dba879e47ef397fffeece74b7e1242aa12ef7dfac5
+        sha256: 4ad18e487d3a87a93a04ee9627bb8aac21733a12d96ca7230f888032a077501b
 
       - type: archive
         only-arches:
           - aarch64
         url: https://github.com/Beaver-Notes/Beaver-Notes/releases/download/v5.0.0/Beaver-Notes-5.0.0-aarch64.tar.gz
-        sha256: c828989b59a7855ccc38207f261b1149c342bec48ce09c782ea49b99d47f3886
+        sha256: 0d728a083c44dabb86ed9c53f783a63ee25f90abdf0461457987a129f15605ac
 
       - type: inline
         dest-filename: com.beavernotes.beavernotes.desktop
